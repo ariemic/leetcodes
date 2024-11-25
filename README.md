@@ -1,2 +1,1 @@
-# leetcodes
-# leetcodes
+# leetcode 150 in python
