@@ -5,21 +5,24 @@
 def findSmallestDifference(A, B):
     A.sort()
     B.sort()
-    print(A)
-    print(B)
-    point_a, point_b = 0, 0
-    len_a, len_b = len(A), len(B)
-    mini = float("inf")
+    # print(A)
+    # print(B)
+    i, j = 0, 0
     res = -1
-    last_diff = 0
-    # if I find diff = 0 then break
-    while point_a < len_a and point_b < len_b:
-        diff = abs(A[point_a] - B[point_b])
-        i = 0
-        while last_diff < diff and last_diff < mini and i < len_b:
+    mini = float("inf")
+    while i < len(A) and j < len(B):
+        # always move pointer indicating smaller element
+        diff = abs(A[i] - B[j])
+        if diff == 0:
+            return (A[i], B[j])
+        if diff < mini:
             mini = diff
-            i += 1
-            diff, last_diff = abs(A[point_a] - B[point_b + i]), diff
+            res = (A[i], B[j])
+
+        if A[i] < B[j]:
+            i += 1  # reduce the distance between elements
+        else:
+            j += 1
 
     return res
 
