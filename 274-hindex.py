@@ -6,7 +6,7 @@ def hIndex(citations: list[int]) -> int:
         if num <= n:
             dp[num] += 1
         else:
-            dp[n - 1] += 1
+            dp[n] += 1
 
     for i in range(n, -1, -1):
         if dp[i] >= i:
